@@ -1,0 +1,14 @@
+{
+  "name": "russell",
+  "version": "1.0.0",
+  "description": "ejercicios de pureba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ejercicios"
+  ],
+  "author": "russel delgado muñoz",
+  "license": "ISC"
+}

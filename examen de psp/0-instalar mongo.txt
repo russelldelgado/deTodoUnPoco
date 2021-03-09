@@ -1,0 +1,36 @@
+
+------------- mongo-----------------
+
+
+cuando lo tengamos instalado tenemos de cercargarnos el contenedor
+de mongo en esta pagina
+
+
+--------- mongo profesor ---------------
+
+servidor
+docker run –name mongoServer -d mongo
+
+cliente
+docker exec -it mongoServer mongo
+
+
+
+
+
+
+---------mongo interne---------
+
+
+
+
+
+https://hub.docker.com/_/mongo
+
+docker pull mongo
+
+$ docker run --name some-mongo -d mongo:tag
+
+conecta 
+
+$ docker run -it --network some-network --rm mongo mongo --host some-mongo test

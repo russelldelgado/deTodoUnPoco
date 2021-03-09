@@ -1,0 +1,33 @@
+1)PARSEADOR DE PAGINA WEB QUE TIENE QUE TENER
+
+1.1) UNA CLASE QUE IMPORTE VARIAS LIBRERIAS QUE VAMOS A UTILIZAR.
+	import 'package:http/http.dart' as http;
+	import 'package:html/parser.dart';
+	import 'package:ruta/modelo/nombreclase.dart';
+	import 'package:ruta/parserador/parsergeneral.dart;
+
+1.2)ESTA CLASE IMPLEMENTA LA OTRA CLASE GENERAL QUE TENGAS CON SUS METODOS.
+	CONTIENE si o si :
+		1-atributos para crear una ruta web
+		
+		static const dominio = 'rutaweb.com'
+		static const uritop = 'esta/esuri/pagina.php'
+		
+		2-un metodo que cree la ruta web
+			
+		_getPaginaWeb = Uri.http(domain , uritop)
+		
+		3- los metodos que hayamos sobreescrito al implementar la clase general
+		
+		
+1.3)CREANDO UNA LISTA DE DATOS PARA LUEGO TRABAJAR CON ELLOS.
+	1-ESTE METODO NOS DEVOLVERA DATOS ASIQUE TIENE QUE SER
+		ASYNC -AWAIT CUANDO NOS CONECTEMOS  A LA PAGINA WEB
+	2-SI TODO SALE CORRECTO ALMACENAMOS EL CUERPO DE LA PAGINA WEB
+		EN UNA VARIABLE QUE SE LLAMA DOCUMENTO USANDO EL PARSE(RESPUES.BODY)
+	3-ALMACENAMOS LA RUTA DE DONDE TENEMOS LOS DATOS PARA LUEGO TRABAJAR CON ELLAS
+		Y PODER PARSEARLAS UNA POR UNA
+	4-RECORREMOS LA LISTA DE DATOS QUE TENMEOS Y LE PASAMOS NUESTRA SEGUNDA CLASE
+		QUE SE ENCARGARA DE CREAR NUESTRO OBJETO SEGUN UNA RUTA QUE LE HAYAMOS PASADO.
+
+		

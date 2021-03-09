@@ -1,0 +1,14 @@
+{
+  "name": "russell",
+  "version": "1.0.0",
+  "description": "pues esto es solo de prueba",
+  "main": "un poco de too",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ejercicios"
+  ],
+  "author": "russell",
+  "license": "ISC"
+}

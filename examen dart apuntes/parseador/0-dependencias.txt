@@ -1,0 +1,34 @@
+1)que dependencias son necesarias
+
+dependencies:
+	http: ^0.12.2
+	html: ^0.14.0+4
+	sqlite3: ^0.1.7
+
+dev_dependencies:
+	pedantic: ^1.9.0
+
+
+
+
+
+2) como se importan las dependencias
+
+nos metemos en el fichero pubspec.yaml pinchamos en esa pantalla 
+y le damos en guardar (control + s)
+
+
+
+
+
+3) donde busco como instalar nuevas dependencias.
+
+nos metemos en : https://pub.dev/
+y buscamos ahí lo que queramos ejemplo : http
+
+
+
+
+4)como se importan luego a la hora de usarla en las paginas.dart
+
+import 'package:http/http.dart';

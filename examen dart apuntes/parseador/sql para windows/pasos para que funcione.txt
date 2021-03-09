@@ -1,0 +1,19 @@
+1. Desacargar SQLite 64 bit
+https://www.sqlite.org/download.html
+2. Extraer el .dll en una carpeta
+3. Copiar la ruta absoluta de esa carpeta
+4. Pegar esa ruta en el Path de las Variables del sistema
+(equipo--> propiedades-->varialbes de entorno --> avanzado--> path --> nueva --> pegar)
+5. Correr el programa Dart
+6. Instalar plugin SQLite
+7. Para abrir la base de datos, Ctrl + Shift + P
+8. SQLite Open Database
+9. SQLite Explorer (menú abajo a la izquierda)
+
+
+EN LINUX --> 
+PARA PODER EJECUTAR EL SQLITE EN EL PROYECTO DE DART
+
+En linux: sudo apt-get install libsqlite3-dev
+
+y corremos el programa normal.

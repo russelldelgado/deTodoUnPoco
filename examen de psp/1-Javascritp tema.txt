@@ -1,0 +1,134 @@
+//JAVA SCRIT ES UN NAVEGADOR DE LA WEB
+//ENCONTRAMOS JAVASCRITP EN NODE JS
+ INTERPERETADO
+	DEVILMENTE TIPADO
+	DINAMICO
+
+TENEMOS ES5-6
+
+//NODE ES UN INTERPRETE DE JAVASCRITP
+
+ECMASCRIPT ES UN STANDAR EN EL QUE ESTA BSADO JAVASCRITP
+
+utilizaremos node y npm 
+
+
+
+//CREAMOS UN PORYECTO NUEVO EN JAVASCRIPT CON NODE.
+
+npm init
+
+
+---------------------pedir argumentos por la consola---------------
+
+process.argv 
+
+if(process.argv.lenth < 3){
+    console.log('faltan argumentos')
+    process.exti(1)
+}
+    
+    if(isNaN(process.argv[2])){
+    console.log( `${process.argv[2]} no es un numero`)
+    process.exit(2)
+    
+}
+
+
+meter varios valores
+
+let valores = process.argv.slice(2)
+-------------------calculamos la desviacion tipica-----------------
+// Desviación típica --> raíz cuadrada del 
+//sumatorio ((valor - media) al cuadrado) entre el número de valores menos 1
+
+
+calcularMedia = (...valores) => {
+    let suma = 0.0
+    for (let index = 0; index < valores.length; index++) {
+        suma += parseInt(valores[index])
+    }
+    return suma / valores.length
+}
+
+calcularDesviacionTipica = (...valores) => {
+   let sumatorio = 0.0
+    for (let index = 0; index < valores.length; index++) {
+        sumatorio += (parseInt(valores[index]) - calcularMedia(valores)) ** 2
+   }
+   return Math.sqrt(sumatorio / (valores.length - 1))
+}
+
+console.log(calcularMedia(2, 4, 7, 3, 22))
+console.log(calcularDesviacionTipica(2, 4, 7, 3, 22))
+
+
+-----------filter --------------map-------------reduce-----------
+
+var arrayDePrueba =["numeros" , "patatas" , "cocacolas"];
+arrayDePrueba.filter(dato => arrayDePruba.leng > 4)
+
+
+var arrayConMapDePrueba = [1,2,4,9 ,16]
+var mapdeArray = arrayConMapDePrueba.Map(Math.sqrt) --> le hace una raiz
+cuadrada a cada numero que pasa dentro del array.
+
+reduce --> produce una funcion reductora sobre cada elemento de un array
+
+const array1 = [1,2,3,4,5,6]
+cons reducir = (acumulador , currentValue) =>acumulador + currentValue
+
+-------------serializar un objeto-------------------------
+
+var datos = {nombre :'pepe' , edad :22 }
+
+var serializador = JSON.stringify(datos)
+
+-----------deserealizar un objeto------------------------
+
+var deserealizador = JSON.parse(serealizador);
+
+
+//-------------------EXPORTAR ES5---------------------
+DENTRO DEL ARCHIVO A EXPORTAR , EXPORTAMOS LO QUE QUERAMOS
+//en circle.js
+exports.area = r => PI *r**2
+exports.longitud = l => 2*PI*r
+EN OTRO ARCHIVO RECOGEMOS LO EXPORTADO
+const circle = require('./circle.js')
+ya ya con esto accedemos a todos sus metodos exportados
+circle.area....
+circle.longitud
+
+
+//-------------------EXPORTAR ES6---------------------
+export const area = r => PI*r*r
+export const perimetro = r => 2*PI*r
+
+
+para exportarlo es igual pero la importacion cambia Y TAMBIEN SE LE PUEDE
+EL NOMBRE
+
+
+import {area ,perimetro} from './circle.js'
+import{area , perimetro as longitud}  from './circle.js'
+
+node -- experimental - modules main .mjs
+
+--------------------tanscompilador de babel------------------
+https://babeljs.io/
+
+1)instalar
+npm install babel -cli babel - preset - es2015 --save - dev
+
+2)crear archivo y meter datos
+ 2.1)creamo => .babelrc
+ 2.2) metemos => {"presets" : ["es2015"]}
+
+3)metemos en el package.json en la seccion de scritp esto :
+
+" dev ": "babel - node index .js" 
+
+4) y ejecutamos con esto :
+
+npm run dev

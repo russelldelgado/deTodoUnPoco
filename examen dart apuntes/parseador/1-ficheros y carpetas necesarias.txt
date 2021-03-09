@@ -1,0 +1,33 @@
+1)donde va nuestro poryecto.
+
+nuestro proyecto de dart va dentro del directorio bin/miapp.dart
+
+
+
+2)estructura de carpetas
+
+bin
+---miapp.dart
+lib
+	database (aqui va a ir la base de datos , su creacion etc...)
+		(class xDao{})  
+		(se instancia la base de datos y su constructor)
+		(se crea un metodo de insercion y se insertan datos dentro preparando el db.prepare(consulta))		
+		
+		(class xprovider{})
+		(se instancia la base de datos y su constructor)
+		(se instancia la base de datos en el constructor habriendo o creando donde se guardaran datos)
+		(se crea metodo que cierre base de datos)
+		(se crea metodo que cree base de datos mediante una consulta sql y se ejecuta dentro con db.execute(consulta))
+
+	models(clases modelos que recogeran los datos cuando vengan)
+		(aqui se crea la clase de donde se parsearan los datos , y su constructor)
+		(ejemplo : class jugadores {String nombre Jugadores(this.nombre);} )
+
+
+	parseador (se crearan los parseadores , es decir los datos que vengan de la web los parseamos)
+		(parseador general)
+		(es una clase abtracta que tiene un future , una tiene una lista de los datos que vamos a parsear y otro solo un dato y le pasamos una uri)		
+	
+		(parseador especifico)
+		(implementa el parseador y le pasamos un dominio y la uri de donde vamos a descargar los datos)

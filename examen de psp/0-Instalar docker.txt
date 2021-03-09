@@ -1,0 +1,54 @@
+https://docs.docker.com/docker-for-windows/install-windows-home/
+
+se supone que en esta pagina nos valdria para esto pero luego creo que daba 
+problemas , aun asi si lo hacemos en otro sitio jodera igual
+
+
+---dokcer en linux----
+
+
+
+sudo apt-get update
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+
+sudo apt update
+
+apt-cache policy docker-ce
+
+sudo apt install docker-ce
+
+sudo systemctl status docker
+
+sudo usermod -aG docker ${USER}
+
+su - ${USER}
+
+id -nG
+
+sudo usermod -aG docker username
+
+
+trabajar con imagenes docker
+
+docker run hello-world
+
+docker search ubuntu
+
+docker pull ubuntu
+
+docker images
+
+docker run -it ubuntu
+
+docker ps -a
+
+docker ps -l
+
+docker start d9b100f2f636
+
+docker stop sharp_volhard

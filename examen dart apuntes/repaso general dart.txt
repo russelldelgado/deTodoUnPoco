@@ -1,0 +1,107 @@
+1¿como instalar dart?
+
+linux --> 
+
+instalar la sdk en los repositorios
+
+sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+
+modificar los path
+
+ export PATH="$PATH:/usr/lib/dart/bin"
+ echo 'export PATH="$PATH:/usr/lib/dart/bin"' >> ~/.profile
+
+instalar el programa.
+
+windows--> choco install dart
+
+choco --> instalamos nodejs
+como se instala nodejs --> descargar node js.
+
+2¿que ide utilizamos?
+IDE --> ENTORNO DE DESARROLLO INTEGRADO
+
+visual studio code.
+
+3¿que extensiones necesita dart?
+dart 
+dart dataclass generator
+dart getter and setter;
+
+4¿como se crea un nuevo proyecto en dart?
+
+pulsamos --> control + shit + p --> escribimos dart en las busquedas-->
+--> new proyect --> simple console aplicación --> ponemos un nonbre --> 
+guardamos el proyecto.
+
+5¿como se corre un programa en dart?
+TERMINAL --> NEW TERMINAL --> COMANDO dart ./bin/ejercicio.dart
+
+6¿variables?
+una variable es algo que puede variar , es como un atributo de java.
+
+EN DAR TENEMOS DOS TIPOS
+var
+const
+
+7¿comentarios en dart?
+
+de una sola linea --> // hola que tal
+de multiples lienas --> /*hola que tal*/
+
+8¿que significa la inferencia de tipo?
+
+el lenguaje de programación infiere el tipo de dato que tenemmos 
+sin necesidad de indicarlo.
+
+9¿tipos de datos?
+En dart todos son objetos no es como java que hay objetos primitivos y no primitivos
+
+int , double , bool , String , Localdate , DateTime.
+
+10¿que significa que una variable es DiNAMICA?
+que el tipo de dato puede variar durante todo el programa
+
+11¿que maneras hay para definir algo de tipo dinamico?
+
+var nombre = null ;
+dynamic nombre = "hola" ;
+Object nombre;
+
+12¿COMO IMPORTAMOS UNA CLASE EN DART?
+
+import 'dart:programa a importar' --> ejemplo import 'dart:io'
+
+13¿como se calcula un dato en tiempo de ejecución y en tiempo de compilacion?
+
+const --> tiempo de compilacion
+final --> tiempo de ejecucion
+
+14¿como se crea una clase?
+
+class nombre {}
+
+
+15¿el constructor de una clase como se tienen que llamar?
+
+con el mismo nombre de la clase.
+
+16¿maneras de crear un constructor?
+
+nombreclase(this.nombre , this.apellidos...);
+nombreclase.dos(string nombre , string apellidos , ){
+this.nombre = nombre ;
+this.apellidos = apellidos ;
+}
+
+
+17¿como se parsea un tipo de dato?
+
+int.parse('22');
+
+
+
+

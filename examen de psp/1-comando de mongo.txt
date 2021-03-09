@@ -1,0 +1,111 @@
+------antes de iniciar----
+
+servidor
+docker run --name mongoServer -d mongo
+
+cliente
+docker exec -it mongoServer mongo
+
+
+si ya tengo la imagen de mongo creada solo tengo que darle
+a docker start mongoServer.
+
+
+------iniciar mongo------
+//arrancar el contenedor
+docker start mongoServer
+
+//copiamos fichero array json al contenedor
+
+docker cp fichero.json mongoServer:/tmp/geografia.json
+
+//ejecutamos mogoimport para copiar los datos del arrayjson a la 
+base  de datos
+
+docker exec -it mongoServer mongoimport --db ejemplo --collection
+geografia --file /tmp/geografia.json --jsonArray
+
+//arrancamos un cliente para conectarnos al servidor
+
+docker exec -it mongoServer mongo
+
+
+
+COMANDOS PARA UTILIZAR DENTRO DE LA BASE DE DATOS
+
+//ver las bases de datos que tenemos actualmente 
+show dbs
+
+//usar una base de datos o crea base de datos
+use nombreDeLaBaseDeDatos
+
+//ver las colesciones que tiene una base de datos
+show collections
+
+//para usar estos comandos tengo que estar suspuestamente dentro de la BASE DE DATOS.
+//eliminar una base de datos actual
+db.dropDatabase()
+
+//crear una coleccion dentro de una base de datos
+db.createCollection("NombreCollections")
+
+
+//se supone que con esto insertamos un documento
+db.nombreColeccion.insert({nombre : "russell" , telefono : "343223445"}) --> y le damos el nombre de nombreColeccion
+
+//creamos e insertamos datos dentro de una base de datos
+
+use bd
+db.contacts.insert({phone : "" , email : "r@.com" , status : "complete"});
+
+
+//usando la opcion insetOne (aqui por muchos quemetamos solo se introduce uno)
+db.geografia.insetOne({pais : "españa" , ciudad "jaen"} , {pais : "turkia" , ciudad:"stambul"})
+
+//usando la opcion insertMany (aqui se introducen todos los quemetamos)
+
+db.geografia.insertMany([{pais : "españa" , ciudad :" guadalajara"} , {pais : "portugal"  , ciudad  : "barcelona"}])
+
+
+
+-------------------- CONSULTAR DENTRO DE UNA COLECCION DE DATOS----------------------
+// regex que empiecen por s o por a
+/^[sa]/
+
+
+
+find() = mirame la base de datos
+pretty() = haz que los datos esten bonitos
+limit(6) = limitame el numero de datos que muestraen la pantalla a 6
+sort() = vale para ordenar ejemplo --> .sort({ciudad:1}) --> ala inversa --> .sort({ciudad : -1})
+
+//queremos ver los datos dentreo de geografia de modo ordenado y un maximo de 5 datos
+db.geografia.find().pretty().limit(5)
+
+//proyecta solo algunos campos ( [0 no se muestra] [1 se muestra])
+db.geografia.find({} , {_id: 0 , ciudad : 1 , latitud : 1}).limit(5)
+
+//busca las ciudades que cumplan estas caracteristicas
+db.geografia.find(){pais : "Spain"},{}
+
+
+//buscqueda con operadores in 
+
+db.geografia.find({pais : {$in ["Rusia" , "Spain" , "France"]}} , {_id : 0}).limit(5).sort({ciudad : -1})
+
+//usando el operador and
+
+db.geografia.find({$and : [ {pais : {$in :["rusia" , "españa " , "francia"] }} , {ciudad : /^[ag]/}]} , {_id:0}).limit(6).sort({pais: -1})
+
+//operador or - gt - lt
+lt --> menor que
+gt--> mayyor que
+or ---> uno u otro
+
+db.geografia.find( {$or :[ {latitud : {$gt:40}} , {latitud : {$lt : 50}}  ]} , {_id : 0}  ).limit(10).sort(latitud : 1)
+
+
+//actualizar datos
+
+db.geografia.update( {nombre : 'russell delgado'} , {$set : {sexo : 'MACHO ALFA WEY'}}  )
+db.geografia.updateMany( {nombre : 'russell delgado'} , {$set : {sexo : 'MACHO ALFA WEY'}}  )
